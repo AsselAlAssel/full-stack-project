@@ -1,0 +1,40 @@
+.post {
+  margin: 30px auto;
+  max-width: 440px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+}
+.post:hover {
+  box-shadow: 0 0 20px #ccc;
+}
+
+.post--writer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.post--writer p {
+  font-size: 20px;
+}
+.post--writer img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post--body {
+  padding-left: 10px;
+}
+.post--title {
+  font-size: 20px;
+}
+.post--postText {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}

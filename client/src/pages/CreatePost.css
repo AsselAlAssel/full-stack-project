@@ -1,0 +1,45 @@
+.form {
+  min-width: 300px;
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+label,
+input,
+button,
+span {
+  display: block;
+  width: 140px;
+  text-decoration: none;
+  margin: 5px;
+}
+label {
+  font-weight: bold;
+}
+input {
+  width: 80%;
+  padding: 5px;
+  font-size: 18px;
+  position: relative;
+  margin-bottom: 25px;
+}
+span {
+  position: absolute;
+  color: red;
+  width: 100%;
+  margin-top: -20px;
+  font-size: 14px;
+}
+button {
+  width: 130px;
+  padding: 5px;
+  margin: 20px;
+  font-size: 18px;
+  background-color: #222;
+  color: #fff;
+  border-radius: 5px;
+  margin: 10px auto;
+  cursor: pointer;
+}
