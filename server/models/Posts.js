@@ -13,6 +13,13 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
 
-    }, { timestamps: false })
+    }, { timestamps: false });
+
+    Posts.associate = (models) => {// this for the relation between the tables
+        Posts.hasMany(models.Comments, {// this for the relation between the tables posts and comments
+            onDelete: "cascade"// i use it for if  i delete post i delete all comments
+        })
+    }
+
     return Posts;
 }
