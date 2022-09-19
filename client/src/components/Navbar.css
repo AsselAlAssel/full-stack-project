@@ -1,0 +1,18 @@
+.navbar {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: flex-start;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  transition: 0.3s ease-in-out;
+}
+a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
