@@ -5,9 +5,12 @@ import * as Yup from 'yup'
 import axios from 'axios'
 import "./AuthForm.css"
 import Swal from 'sweetalert2'
+import { useContext } from 'react'
+import { AuthContext } from '../../helpers/AuthContext'
 
 const AuthForm = (props) => {
     const navigate = useNavigate()
+    const ctx = useContext(AuthContext)
     const initialValues = {
         username: '',
         password: ''
@@ -28,7 +31,8 @@ const AuthForm = (props) => {
                         footer: '<a href="">Why do I have this issue?</a>'
                     })
                 } else {
-                    sessionStorage.setItem('accessToken', response.data);
+                    localStorage.setItem('accessToken', response.data);
+                    ctx.setAuthState(true)
                     navigate('/')
 
                 }

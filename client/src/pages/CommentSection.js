@@ -29,12 +29,11 @@ const CommentSection = () => {
         },
             {
                 headers: {
-                    accessToken: sessionStorage.getItem("accessToken")
+                    accessToken: localStorage.getItem("accessToken")
                 }
             }).then((response) => {
                 console.log(response)
                 if (response.data.error) {
-
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
@@ -44,6 +43,7 @@ const CommentSection = () => {
                     setComment("")
                     navigate("/login")
                 } else {
+                    console.log("---------------", response.data)
                     setComments([...comments, response.data]);
                     setComment("")
                 }
@@ -64,7 +64,8 @@ const CommentSection = () => {
             </form>
             <div className='commentsContainer'>
                 {comments.map((comment) => {
-                    return <Comment CommentBody={comment.commentBody} key={Math.random()} />
+                    console.log(comment)
+                    return <Comment comment={comment} key={Math.random()} />
                 })}
 
             </div>
