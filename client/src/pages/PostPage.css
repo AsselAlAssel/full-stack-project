@@ -1,0 +1,31 @@
+.postPage {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 10%;
+  gap: 100px;
+}
+
+@media screen and (max-width: 1300px) {
+  .postPage {
+    justify-content: center;
+    padding: 0 5%;
+  }
+}
+
+.postPage > div {
+  width: 50%;
+}
+@media screen and (max-width: 1300px) {
+  .postPage > div {
+    width: 100%;
+  }
+  .postPage--post {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.postPage .post {
+  margin: 0px;
+}

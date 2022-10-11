@@ -1,4 +1,4 @@
-.createPosts .form {
+.conatiner-form {
   min-width: 300px;
   max-width: 500px;
   margin: auto;
@@ -6,35 +6,31 @@
   border: 1px solid #ccc;
   padding: 20px;
 }
+h3 {
+  text-align: center;
+}
 
-.createPosts label,
-.createPosts input,
-.createPosts button,
-.createPosts span {
+.login .conatiner-form {
+  border: none;
+}
+
+.conatiner-form input,
+.conatiner-form button {
   display: block;
-  width: calc(100% - 10px) !important;
   text-decoration: none;
   margin: 5px;
+  width: calc(100% - 10px) !important;
 }
 
-.createPosts label {
-  font-weight: bold;
-}
-.createPosts input {
+.conatiner-form input {
   width: 80%;
   padding: 5px;
   font-size: 18px;
   position: relative;
   margin-bottom: 25px;
 }
-.createPosts span {
-  position: absolute;
-  color: red;
-  width: 100%;
-  margin-top: -20px;
-  font-size: 14px;
-}
-.createPosts button {
+
+.conatiner-form button {
   width: 130px;
   padding: 5px;
   margin: 20px;
@@ -44,4 +40,12 @@
   border-radius: 5px;
   margin: 40px auto 0px auto;
   cursor: pointer;
+}
+
+.conatiner-form span {
+  position: absolute;
+  color: red;
+  width: 100%;
+  margin-top: -20px;
+  font-size: 14px;
 }

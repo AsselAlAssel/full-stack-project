@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 import "./CreatePost.css"
 import axios from 'axios'
@@ -7,6 +8,7 @@ import Swal from 'sweetalert2'
 
 
 export const CreatePost = () => {
+    const navigate = useNavigate()
     const initialValues = {
         title: '',
         postText: '',
@@ -21,6 +23,7 @@ export const CreatePost = () => {
             icon: 'success',
             confirmButtonText: 'Cool'
         });
+        navigate('/')
     }
     const validate = Yup.object().shape({
         title: Yup.string().required('Title is required'),

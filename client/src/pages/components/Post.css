@@ -1,5 +1,6 @@
 .post {
   margin: 30px auto;
+  min-width: 350px;
   max-width: 440px;
   border: 1px solid #ccc;
   padding: 10px;
