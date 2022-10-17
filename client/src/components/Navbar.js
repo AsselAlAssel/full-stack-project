@@ -17,13 +17,16 @@ function Navbar() {
     return (
         <div className='navbar'>
             <div className='nav-links'>
-                <Link to='/' className='GoToHomePage'>Home Page</Link>
-                <Link to='/create-post'>Create Post</Link>
-                {!ctx.AuthState.isLogin &&
+
+                {!ctx.AuthState.isLogin ? (
                     <>
                         <Link to='/login'>Login</Link>
                         <Link to='/registration'>Registration</Link>
                     </>
+                ) : (
+                    <><Link to='/' className='GoToHomePage'>Home Page</Link>
+                        <Link to='/create-post'>Create Post</Link></>
+                )
                 }
             </div>
             <div className='nav-logout'>

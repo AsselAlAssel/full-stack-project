@@ -3,7 +3,7 @@ const { validationTocken } = require("../middlewares/AuthMiddleware")
 const router = express.Router();
 const { Posts, Likes } = require("../models");
 
-router.get("/", async (req, res) => {
+router.get("/", validationTocken, async (req, res) => {
     const listOfPosts = await Posts.findAll({
         include: Likes
     });
@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
     res.json(listOfPosts);
 });
 
-router.get("/byId/:id", async (req, res) => {
+router.get("/byId/:id", validationTocken, async (req, res) => {
     const id = req.params.id;
     let post = await Posts.findAll({
         include: Likes

@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Registration from './pages/Registration';
 import { AuthContext } from './helpers/AuthContext';
 import axios from 'axios';
+import NotFound from './pages/NotFound';
 
 function App() {
   const isLogin = !!localStorage.getItem('accessToken');
@@ -51,6 +52,7 @@ function App() {
             <Route path="/post/:id" element={<PostPage />} />
             <Route path="/login" exact element={<Login />} />
             <Route path="/registration" element={<Registration />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </AuthContext.Provider>

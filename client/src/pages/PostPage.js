@@ -11,7 +11,11 @@ const PostPage = () => {
     const [postContent, setpostContent] = useState({});
 
     useEffect(() => {
-        axios.get(`http://localhost:3300/posts/byId/${id}`).then((response) => {
+        axios.get(`http://localhost:3300/posts/byId/${id}`, {
+            headers: {
+                token: localStorage.getItem("accessToken")
+            }
+        }).then((response) => {
             console.log("----------------------")
             console.log(response.data[0].Likes)
             console.log("----------------------")
