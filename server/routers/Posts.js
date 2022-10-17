@@ -31,5 +31,20 @@ router.post("/", validationTocken, async (req, res) => {
     res.json(post);
 });
 
+router.delete("/:PostId", validationTocken, async (req, res) => {
+    console.log(3)
+    const id = req.params.PostId;
+    const UserId = req.user.id;
+    await Posts.destroy({
+        where: {
+            id: id,
+            UserId: UserId
+        }
+    });
+    res.json("deleted");
+
+});
+
+
 
 module.exports = router;

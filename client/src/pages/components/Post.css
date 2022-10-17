@@ -8,7 +8,7 @@
   box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in;
   cursor: pointer;
-  cursor: pointer;
+  position: relative;
 }
 .post:hover {
   box-shadow: 0 0 20px #ccc;
@@ -71,4 +71,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.post--delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ccc;
+  font-size: 20px;
+  /* background-color: red; */
+  margin: 10px;
+}
+.post--delete:hover {
+  color: #000;
 }
