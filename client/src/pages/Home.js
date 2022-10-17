@@ -12,7 +12,7 @@ export const Home = () => {
     }, []);
     return (
         <div className='home'>
-            {listOfPosts.map((value) => <Post postInfo={value} key={Math.random()} />)}
+            {listOfPosts.map((value) => <Post postInfo={value} key={Math.random()} setListOfPosts={setListOfPosts} listOfPosts={listOfPosts} home={true} />)}
         </div>
 
     );

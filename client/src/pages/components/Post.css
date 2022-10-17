@@ -40,3 +40,35 @@
   margin-bottom: 10px;
   line-height: 1.4;
 }
+
+.like-share-comments {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.like-share-comments button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ccc;
+  font-size: 20px;
+  /* background-color: red; */
+}
+.like-share-comments button.active {
+  color: blue;
+}
+.like-share-comments button:hover {
+  color: #000;
+}
+.numberOflikesAndcooments {
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

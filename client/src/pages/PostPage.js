@@ -9,10 +9,13 @@ import "./PostPage.css"
 const PostPage = () => {
     const { id } = useParams()
     const [postContent, setpostContent] = useState({});
+
     useEffect(() => {
         axios.get(`http://localhost:3300/posts/byId/${id}`).then((response) => {
-            setpostContent(response.data)
-
+            console.log("----------------------")
+            console.log(response.data[0].Likes)
+            console.log("----------------------")
+            setpostContent(response.data[0])
         })
     }, []);
     return (

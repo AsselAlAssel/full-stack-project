@@ -2,10 +2,10 @@ const jwt = require("jsonwebtoken")
 
 const validationTocken = (req, res, next) => {
     console.log("validationTocken", req.headers);
-    const accessToken = req.headers?.accesstoken;
-    console.log("accessToken", accessToken);
+    const accessToken = req.headers?.token;
+    console.log("accessToken", typeof (accessToken));
     console.log("--------------------", accessToken);
-    if (!accessToken) {
+    if (accessToken == "null") {
         return res.json({
             error: "Login First For comment"
         })

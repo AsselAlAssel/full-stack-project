@@ -12,13 +12,31 @@ import axios from 'axios';
 
 function App() {
   const isLogin = !!localStorage.getItem('accessToken');
-  const [AuthState, setAuthState] = useState(isLogin);
+  const [AuthState, setAuthState] = useState({
+    username: "",
+    id: "",
+    isLogin: isLogin
+  });
   useEffect(() => {
-    axios.get("http://localhost:3001/auth/auth", { headers: { accessToken: localStorage.getItem("accessToken") } }).then((response) => {
+    console.log(localStorage.getItem('accessToken'))
+
+    console.log(1)
+    axios.get("http://localhost:3300/auth/auth", { headers: { token: localStorage.getItem("accessToken") } }).then((response) => {
+      console.log(2)
       if (response.data.error) {
-        setAuthState(false);
+        setAuthState({
+          ...AuthState, isLogin: false
+        });
       } else {
-        setAuthState(true);
+        const data = response.data
+        console.log(data)
+        setAuthState(
+          {
+            username: data.username,
+            id: data.id,
+            isLogin: true
+
+          });
       }
     });
   }, [])

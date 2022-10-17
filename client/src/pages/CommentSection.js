@@ -13,6 +13,21 @@ const CommentSection = () => {
     const [comments, setComments] = React.useState([]);
     const [comment, setComment] = React.useState("");
 
+    const handelDeleteComment = (id) => {
+        console.log(id)
+        axios.delete(`http://localhost:3300/comments/${id}`, {
+            headers: {
+                token: localStorage.getItem("accessToken")
+            }
+        }).then((response) => {
+            console.log(response)
+            setComments(comments.filter((val) => {
+                return val.id !== id
+            }
+            ))
+        })
+    }
+
     useEffect(() => {
         console.log(comments)
         axios.get(`http://localhost:3300/comments/${id}`).then((response) => {
@@ -26,29 +41,28 @@ const CommentSection = () => {
         axios.post('http://localhost:3300/comments', {
             commentBody: comment,
             PostId: id
-        },
-            {
-                headers: {
-                    accessToken: localStorage.getItem("accessToken")
-                }
-            }).then((response) => {
-                console.log(response)
-                if (response.data.error) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: response.data.error,
-                        footer: '<a href="">Why do I have this issue?</a>'
-                    })
-                    setComment("")
-                    navigate("/login")
-                } else {
-                    console.log("---------------", response.data)
-                    setComments([...comments, response.data]);
-                    setComment("")
-                }
+        }, {
+            headers: {
+                token: localStorage.getItem("accessToken")
+            }
+        }).then((response) => {
+            console.log(response)
+            if (response.data.error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: response.data.error,
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
+                setComment("")
+                navigate("/login")
+            } else {
+                console.log("---------------", response.data)
+                setComments([...comments, response.data]);
+                setComment("")
+            }
 
-            })
+        })
     }
     return (
 
@@ -65,7 +79,8 @@ const CommentSection = () => {
             <div className='commentsContainer'>
                 {comments.map((comment) => {
                     console.log(comment)
-                    return <Comment comment={comment} key={Math.random()} />
+                    return <Comment comment={comment} key={Math.random()}
+                        handelDeleteComment={handelDeleteComment} />
                 })}
 
             </div>

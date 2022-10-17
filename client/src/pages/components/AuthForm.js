@@ -31,12 +31,16 @@ const AuthForm = (props) => {
                         footer: '<a href="">Why do I have this issue?</a>'
                     })
                 } else {
-                    localStorage.setItem('accessToken', response.data);
-                    ctx.setAuthState(true)
+                    localStorage.setItem('accessToken', response.data.token);
+                    console.log(response.data.token)
+                    ctx.setAuthState({
+                        username: response.data.username,
+                        id: response.data.id,
+                        isLogin: true
+                    })
                     navigate('/')
 
                 }
-
             })
 
     }
