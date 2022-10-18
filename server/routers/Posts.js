@@ -42,8 +42,19 @@ router.delete("/:PostId", validationTocken, async (req, res) => {
         }
     });
     res.json("deleted");
-
 });
+
+router.get("/user-info/:id", async (req, res) => {
+    const id = req.params.id;
+    const listOfPosts = await Posts.findAll({
+        where: {
+            UserId: id
+        },
+        include: Likes
+    });
+    res.json(listOfPosts);
+});
+
 
 
 

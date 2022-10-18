@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../helpers/AuthContext';
 import "./Post.css"
 import user from '../../assets/user.jpg'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { AiFillDelete, AiOutlineLike } from 'react-icons/ai'
 import { BiCommentDetail, BiShare } from 'react-icons/bi'
 import axios from 'axios'
@@ -101,7 +101,11 @@ const Post = (props) => {
             {ctx.AuthState.id === UserId && props?.home && < button className='post--delete' onClick={handelClickDeletePost}><AiFillDelete className='post--deleteIcon' /></button>}
             <div className='post--writer post--head'>
                 <img src={user} alt="user" />
-                <p>{username}</p>
+                {!props?.user ? (
+                    <p><Link to={`user-info/${UserId}`} >{username}</Link></p>
+                ) :
+                    <p>{username}</p>
+                }
             </div>
             <div className='post--body'>
                 <p className='post--title'>{title}</p>
@@ -112,11 +116,13 @@ const Post = (props) => {
                     <p>0 comments</p>
                     <p>{numberOflikes} likes</p>
                 </div>
-                <div className='like-share-comments'>
-                    <button><BiShare className='icon share' /></button>
-                    <button onClick={handelPostClicked}><BiCommentDetail className='icon commentBtn' /></button>
-                    <button className={liked ? "active" : "xxxx"} onClick={event => handelPostLike(event)} > <AiOutlineLike className='icon like' /></button>
-                </div>
+                {!props?.user &&
+                    < div className='like-share-comments'>
+                        <button><BiShare className='icon share' /></button>
+                        <button onClick={handelPostClicked}><BiCommentDetail className='icon commentBtn' /></button>
+                        <button className={liked ? "active" : "xxxx"} onClick={event => handelPostLike(event)} > <AiOutlineLike className='icon like' /></button>
+                    </div>
+                }
             </div >
 
         </div >

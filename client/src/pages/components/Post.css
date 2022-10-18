@@ -28,6 +28,10 @@
   border-radius: 50%;
   margin-right: 10px;
 }
+.post--writer a {
+  text-decoration: none;
+  color: #000;
+}
 
 .post--body {
   padding-left: 10px;
