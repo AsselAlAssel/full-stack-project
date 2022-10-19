@@ -27,10 +27,10 @@ router.delete("/:commentId", validationTocken, async (req, res) => {
     const commentId = req.params.commentId;
     await Comments.destroy({
         where: {
-            PostId: commentId
+            id: commentId
         }
     })
-    return res.sendStatus(200).json("Comment deleted");
+    return res.json("Comment deleted");
 })
 
 
