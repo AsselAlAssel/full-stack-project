@@ -113,7 +113,6 @@ const Post = (props) => {
             </div>
             <div className='post--footer'>
                 <div className='numberOflikesAndcooments'>
-                    <p>0 comments</p>
                     <p>{numberOflikes} likes</p>
                 </div>
                 {!props?.user &&

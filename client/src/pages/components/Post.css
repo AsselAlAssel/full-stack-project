@@ -73,7 +73,7 @@
   font-size: 14px;
   color: #ccc;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 .post--delete {
