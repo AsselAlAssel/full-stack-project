@@ -1,3 +1,19 @@
-.userInfo h1 {
+.userInfo h1,
+.userInfo--EditProfile {
   text-align: center;
+}
+.userInfo--changeThePassword {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  padding: 15px 10px;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+}
+.userInfo--changeThePassword:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 0 5px #ccc;
 }

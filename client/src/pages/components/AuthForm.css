@@ -1,4 +1,5 @@
-.conatiner-form {
+.conatiner-form,
+.changePass {
   min-width: 300px;
   max-width: 500px;
   margin: auto;
@@ -10,19 +11,23 @@ h3 {
   text-align: center;
 }
 
-.login .conatiner-form {
+.login .conatiner-form,
+.changePass {
   border: none;
 }
 
 .conatiner-form input,
-.conatiner-form button {
+.conatiner-form button,
+.changePass input,
+.changePass button {
   display: block;
   text-decoration: none;
   margin: 5px;
   width: calc(100% - 10px) !important;
 }
 
-.conatiner-form input {
+.conatiner-form input,
+.changePass input {
   width: 80%;
   padding: 5px;
   font-size: 18px;
@@ -30,7 +35,8 @@ h3 {
   margin-bottom: 25px;
 }
 
-.conatiner-form button {
+.conatiner-form button,
+.changePass button {
   width: 130px;
   padding: 5px;
   margin: 20px;
@@ -42,7 +48,8 @@ h3 {
   cursor: pointer;
 }
 
-.conatiner-form span {
+.conatiner-form span,
+.changePass span {
   position: absolute;
   color: red;
   width: 100%;
