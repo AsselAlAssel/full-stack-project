@@ -7,6 +7,11 @@ const { validationTocken } = require("../middlewares/AuthMiddleware")
 
 router.post('/', async (req, res) => {
     const { username, password } = req.body;
+    const user = await Users.findOne({ where: { username } });
+    // return error  if user exist in database
+    if (user) {
+        return res.status(400).send({ error: 'User already exist' });
+    }
     bcrypt.hash(password, 10)
         .then((hash) => {
             Users.create(
